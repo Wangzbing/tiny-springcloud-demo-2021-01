@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--字符串输出-->
+<p th:text="'hello SpringBoot'">hello thymeleaf</p>
+<!--&lt;!&ndash;数学运算&ndash;&gt;-->
+<!--<p th:text="9 + 10"></p>-->
+<!--<p th:text="10 * 10"></p>-->
+<!--<p th:text="1 - 10"></p>-->
+<!--<p th:text="8 / 3"></p>-->
+<!--<p th:text="3 % 2"></p>-->
+<!--&lt;!&ndash;操作域对象&ndash;&gt;-->
+<!--<p th:text="${user}"></p>-->
+<!--<p th:text="${user.username}"></p>-->
+
+<!--遍历数组-->
+<a href="/addUser">添加用户</a>
+<br>
+<a href="/">首页</a>
+<table>
+    <tr>
+        <td>序号</td>
+        <td>姓名</td>
+        <td>年龄</td>
+    </tr>
+    <tr th:each="user, sta:${userList}" >
+        <td th:text="${sta.index+1}"></td>
+        <td th:text="${user.getUserName()}"></td>
+        <td th:text="${user.getAge()}"></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td>序号</td>
+        <td>姓名</td>
+        <td>金钱</td>
+    </tr>
+    <tr th:each="account, sta:${accountList}" >
+        <td th:text="${sta.index+1}"></td>
+        <td th:text="${account.getAccountName()}"></td>
+        <td th:text="${account.getAccountMoney()}"></td>
+    </tr>
+</table>
+
+<!--&lt;!&ndash;遍历map&ndash;&gt;-->
+<!--<div th:each="item:${user.secrets}" th:text="${item.key}"></div>-->
+
+<!--&lt;!&ndash;遍历数组&ndash;&gt;-->
+<!--<div th:each="item:${user.hobbies}" th:text="${item}"></div>-->
+
+<!--&lt;!&ndash;设置属性&ndash;&gt;-->
+<!--<input type="text" th:attr="value=${user.username}">-->
+<!--<input type="text" th:attr="value=${user.username}, title=${user.username}">-->
+
+
+
+<!--&lt;!&ndash;解析html文本内容&ndash;&gt;-->
+<!--<p th:utext="'<span>html</span>'"></p>-->
+
+<!--&lt;!&ndash;流程控制&ndash;&gt;-->
+<!--<p th:if="${user.username} != ${user.password}">yes</p>-->
+<!--<div th:switch="${user.username}">-->
+<!--    <p th:case="rose">name is rose</p>-->
+<!--    <p th:case="jack">name is jack</p>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;外部引入&ndash;&gt;-->
+<!--<link rel="stylesheet" th:href="@{/css/index.css}">-->
+<!--<script th:src="@{/js/index.js}"></script>-->
+
+<!--<a th:href="@{/home}">home</a>-->
+</body>
+</html>

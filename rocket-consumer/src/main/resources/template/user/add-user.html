@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+</head>
+<body>
+<!-- 表单提交用户信息,注意字段的设置,直接是*{} -->
+<form action="#" th:action="@{/addUser}" method="post">
+    <label>
+        <input type="text" value="accountName" name="accountName"/>
+    </label>
+    <label>
+        <input type="text" value="accountMoney" name="accountMoney" />
+    </label>
+    <input type="submit" />
+</form>
+</body>
+</html>
